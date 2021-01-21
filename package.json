@@ -1,0 +1,22 @@
+{
+  "name": "pagos",
+  "version": "1.0.0",
+  "description": "Sistema de pagos",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardo77a/pagos.git"
+  },
+  "author": "P470 | Cervando",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ricardo77a/pagos/issues"
+  },
+  "homepage": "https://github.com/ricardo77a/pagos#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
