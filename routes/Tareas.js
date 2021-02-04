@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const {isAuthenticated} = require('../app/middleware/auth');
 
-router.get('/tareas/', function(request, response) {
-	response.render('tareas/index', {title:'Tareas | Index'});
-});
+var TareasController = require('../controllers/TareasController');
+
+router.get('/tareas',isAuthenticated, TareasController.index);
 
 module.exports = router;

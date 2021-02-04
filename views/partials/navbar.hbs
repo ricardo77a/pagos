@@ -1,12 +1,36 @@
 <nav>
     <div class="nav-wrapper light-blue">
-        <a href="#" class="brand-logo">
+        <a href="/" class="brand-logo">
             <img src="/img/ico.png" alt="Logo">
         </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-                <a href="#">TAREAS</a>
+                <a href="/tareas">TAREAS</a>
+                
             </li>
+
+            <li>
+                <a href="/login-view">LOGIN</a>
+            </li>
+             <li>
+                <a href="/register-view">REGISTER</a>
+            </li>
+
+            <!-- Dropdown Trigger -->
+{{#if user}}
+     <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>{{user.email}}</a>
+{{/if}}
+ 
+
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">Perfil</a></li>
+    <li><a href="#!">Salir </a></li>
+
+        
+
+            
         </ul>
     </div>
 </nav>
