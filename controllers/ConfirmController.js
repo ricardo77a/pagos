@@ -1,7 +1,8 @@
 
-const Confirm = require('../models/UserConfirmTarea')
-const Tarea = require('../models/Tarea')
-const User = require('../models/User')
+const Confirm = require('../models/UserConfirmTarea');
+const Tarea = require('../models/Tarea');
+const User = require('../models/User');
+const {isAuthenticated} = require('../app/middleware/auth');
 
 async function confirm_pago(request,response){
 	

@@ -28,6 +28,17 @@ async function registerView(request, response) {
 
 }
 
+async function logout(request, response) {
+    request.logout();
+
+
+  // redirect to homepage
+  response.redirect('/login-view');;
+
+}
+
+
+
 module.exports = {
-    loginView,register,registerView,login
+    loginView,register,registerView,login,logout
 }
