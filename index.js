@@ -4,6 +4,8 @@ const path = require('path');
 const methodOveride = require('method-override');//Sobreescritura de metodos
 const session =  require('express-session'); //Modulo para sessiones de usuario
 const flash = require('connect-flash');
+const handlebars = require('koa-handlebars')
+
 //Passport 
 const passport = require('passport');
 
@@ -11,6 +13,17 @@ const passport = require('passport');
 const app = express();
 require('./app/database/connection') //Conectamos la base de datos
 require('./app/config/passport') 
+
+//Handelbars Helper
+const isEqualHelperHandelbar = function(a,b,options){
+
+
+ if(String(a) === String(b)) {
+    return options.fn(this);
+  }
+  
+return options.inverse(this);
+}
 
 
 
@@ -24,16 +37,19 @@ const hbs = exphbs.create({
     layoutsDir : 'views/layouts',
     partialsDir: 'views/partials',
     extname:'hbs',
-    runtimeOptions:{
+    runtimeOptions: {
       allowProtoPropertiesByDefault:true,
-      allowProtoMethodsByDefault: true,
-
-  }
+      allowProtoMethodsByDefault:true
+    },
+    helpers:{
+      if_equal:isEqualHelperHandelbar
+    }
  
   
 });
 
 app.engine('hbs', hbs.engine);
+
 app.set('view engine', '.hbs');
 
 
@@ -51,8 +67,8 @@ app.use(passport.session());
 app.use(flash());
 
 app.use((req,res,next)=>{
-  res.locals.user = req.user || null; //variable que contiene el ususario logeado
-  console.log(req.user);
+  res.locals.msg_success = req.flash('msg_success');
+  res.locals.user = req.user || null; //variable que contiene el ususario logead
   next();
 
 });
@@ -60,6 +76,7 @@ app.use((req,res,next)=>{
 app.use(require('./routes/Index'));
 app.use(require('./routes/Tareas'));
 app.use(require('./routes/Auth'));
+app.use(require('./routes/Confirm'));
 
 
 
