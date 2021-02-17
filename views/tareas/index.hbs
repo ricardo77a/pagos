@@ -2,7 +2,7 @@
 <div class="row">
   <div class="right-align">
     <div class="card-panel ">
-      <a href="/tareas/create"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+      <a href="/tareas/create" data-position="left" data-tooltip="Crear Nueva Tarea"  class="btn-floating btn-large waves-effect waves-light tooltipped red"><i class="material-icons">add</i></a>
 
       <table class="responsive-table">
        <thead>
@@ -26,7 +26,7 @@
          <td>
 
           {{#if this.confirms}}
-          <a href="/confirms/{{this._id}}" class="waves-effect waves-light green btn-small">Confirmaciones</a>
+          <a href="/confirms/{{this._id}}" data-position="top" data-tooltip="Ver Confirmaciones " class="waves-effect tooltipped waves-light green btn-small">Confirmaciones</a>
           {{/if}}
 
         </td>
@@ -35,13 +35,13 @@
 
 
           {{#if_equal user._id ../user._id}}
-          <a href="/tareas/create"  class="btn-floating btn-small waves-effect waves-light #ff1744 #ffb74d orange lighten-2"><i class="material-icons">edit</i></a>
-          <a href="/tareas/create"  class="btn-floating btn-small waves-effect waves-light #ff1744 red accent-3"><i class="material-icons">edit</i></a>
+          <a href="/tareas/create" data-position="left" data-tooltip="Editar Tarea"  class="btn-floating btn-small tooltipped waves-effect waves-light #ff1744 #ffb74d orange lighten-2"><i class="material-icons">edit</i></a>
+          <a href="/tareas/create" data-position="bottom" data-tooltip="Eliminar Tarea" class="btn-floating btn-small waves-effect tooltipped waves-light #ff1744 red accent-3"><i class="material-icons">delete</i></a>
 
 
 
           {{else}}
-          <a href="/confirm-pago/{{this._id}}"  class="btn-floating btn-small waves-effect waves-light #ff1744  modal-trigger success accent-3"><i class="material-icons">assignment_turned_in </i>
+          <a href="/confirm-pago/{{this._id}}"  data-position="top" data-tooltip="Confirmar Pago"  class="btn-floating btn-small tooltipped waves-effect waves-light #ff1744  modal-trigger success accent-3"><i class="material-icons">assignment_turned_in </i>
           
             {{/if_equal}}
 

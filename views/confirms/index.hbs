@@ -39,7 +39,7 @@
 								
 							{{else}}
 								{{#if_equal ../tarea.user ../user._id}}
-									<a href="/confirm-recibo/{{this._id}}" class="waves-effect waves-light green btn-small">Confirmar</a>
+									<a href="/confirm-recibo/{{this._id}}" data-position="left" data-tooltip="Confirmar que ya me pago"  class="waves-effect waves-light tooltipeed green btn-small">Confirmar</a>
 								{{/if_equal}}
 								
 							{{/if}}
